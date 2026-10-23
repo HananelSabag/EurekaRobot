@@ -1,0 +1,5 @@
+# robot.json holds the robot's LAN token/key; history and logs are local only
+data/
+.venv/
+__pycache__/
+.pytest_cache/

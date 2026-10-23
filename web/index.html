@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#151a2b">
+<link rel="manifest" href="/static/manifest.json">
+<link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+<title>הרובוט של סבג</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600&family=Fredoka:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <h1>Sabag Robot</h1>
+    <span class="chip" id="chip"><i></i><span id="chipText">מתחבר</span></span>
+  </header>
+
+  <!-- home -->
+  <section class="view on" id="v-home">
+    <div class="hero">
+      <svg class="robot" id="robot" viewBox="0 0 320 320" role="img" aria-labelledby="pctText">
+        <defs>
+          <radialGradient id="shell" cx="50%" cy="38%" r="70%">
+            <stop offset="0" stop-color="#3d4864"/>
+            <stop offset="1" stop-color="#20273b"/>
+          </radialGradient>
+        </defs>
+        <circle class="ring-bg" cx="160" cy="160" r="148" fill="none" stroke-width="12"/>
+        <circle class="ring" id="ring" cx="160" cy="160" r="148" fill="none" stroke-width="12"
+                stroke-linecap="round" transform="rotate(-90 160 160)"
+                stroke-dasharray="929.9" stroke-dashoffset="929.9"/>
+        <circle class="shell" cx="160" cy="160" r="128" stroke-width="2"/>
+        <path class="seam" d="M58 118 H262" fill="none" stroke-width="3" stroke-linecap="round"/>
+        <g class="brush"><circle cx="92" cy="74" r="4" fill="#8792ad" stroke="none"/><path d="M92 74 v-18 M92 74 l15.6 9 M92 74 l-15.6 9" stroke-width="2" stroke-linecap="round"/></g>
+        <g class="brush"><circle cx="228" cy="74" r="4" fill="#8792ad" stroke="none"/><path d="M228 74 v-18 M228 74 l15.6 9 M228 74 l-15.6 9" stroke-width="2" stroke-linecap="round"/></g>
+        <circle class="button" cx="160" cy="88" r="12" stroke-width="2"/>
+        <circle class="led" cx="160" cy="66" r="3.5"/>
+        <text class="pct" id="pctText" x="160" y="200" text-anchor="middle" direction="ltr">--<tspan class="pct-unit" dx="4">%</tspan></text>
+      </svg>
+      <p class="status" id="status">מתחבר לרובוט</p>
+      <div class="facts" id="facts"></div>
+    </div>
+
+    <div class="alert" id="alert"><b id="alertTitle"></b><span id="alertText"></span></div>
+
+    <div class="controls">
+      <button class="side" id="stopBtn" disabled>עצור</button>
+      <button class="go" id="goBtn" disabled>נקה</button>
+      <button class="side" id="dockBtn" disabled>הביתה</button>
+    </div>
+
+    <h2>איך לנקות</h2>
+    <div class="modes" id="modes">
+      <button class="mode" data-v="arc" aria-pressed="false">
+        <svg viewBox="0 0 44 44"><path d="M8 10 H36 V18 H8 V26 H36 V34 H8"/></svg>
+        <b>כל הבית</b><span>נוסע בפסים מסודרים על כל השטח הפתוח וחוזר לעמדה בסוף.</span>
+      </button>
+      <button class="mode" data-v="edge" aria-pressed="false">
+        <svg viewBox="0 0 44 44"><path d="M8 8 H36 V36 H8 Z"/><path d="M14 14 H30 V30 H14" stroke-dasharray="3 4"/></svg>
+        <b>לאורך הקירות</b><span>צמוד לקירות ולרגלי הרהיטים, איפה שאבק מצטבר.</span>
+      </button>
+      <button class="mode" data-v="screw" aria-pressed="false">
+        <svg viewBox="0 0 44 44"><path d="M22 22 m0 -3 a3 3 0 1 1 -3 3 a7 7 0 1 1 7 7 a11 11 0 1 1 -11 -11"/></svg>
+        <b>נקודה אחת</b><span>מסתובב בספירלה סביב המקום שבו הוא עומד. לפירורים שנשפכו.</span>
+      </button>
+    </div>
+
+    <h2>יניקה</h2>
+    <div class="pills" id="fan">
+      <button data-v="soft">שקטה</button>
+      <button data-v="normal">רגילה</button>
+      <button data-v="high">חזקה</button>
+    </div>
+
+    <h2>מים למגב</h2>
+    <div class="pills" id="water">
+      <button data-v="low">מעט</button>
+      <button data-v="normal">בינוני</button>
+      <button data-v="high">הרבה</button>
+    </div>
+    <p class="hint">הבחירות נשלחות לרובוט כשלוחצים "נקה".</p>
+  </section>
+
+  <!-- history -->
+  <section class="view" id="v-history">
+    <h2>החודש</h2>
+    <div class="totals" id="totals"></div>
+    <h2>דקות ניקוי בשבוע האחרון</h2>
+    <div class="week" id="week"></div>
+    <h2>כל הניקויים</h2>
+    <ul class="runs" id="runs"></ul>
+  </section>
+
+  <!-- care -->
+  <section class="view" id="v-care">
+    <h2>חלקים</h2>
+    <div id="parts"></div>
+    <h2>מה קרה לאחרונה</h2>
+    <ul class="log" id="log"></ul>
+  </section>
+</div>
+
+<nav role="tablist">
+  <button role="tab" aria-selected="true" data-v="home">רובוט</button>
+  <button role="tab" aria-selected="false" data-v="history">היסטוריה</button>
+  <button role="tab" aria-selected="false" data-v="care">תחזוקה</button>
+</nav>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="/static/app.js"></script>
+</body>
+</html>

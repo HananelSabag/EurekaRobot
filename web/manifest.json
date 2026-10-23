@@ -1,0 +1,11 @@
+{
+  "name": "Sabag Robot",
+  "short_name": "רובוט",
+  "lang": "he",
+  "dir": "rtl",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#151a2b",
+  "theme_color": "#151a2b",
+  "icons": [{ "src": "/static/icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
