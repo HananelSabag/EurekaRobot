@@ -1,0 +1,106 @@
+{
+ "device_id": 123456789012345,
+ "packet_time": "0c22380b180a1a14",
+ "frames": {
+  "query": "aa0cb800000000000103320105",
+  "start_arc_normal_low_70": "aa19b800000000000102220202020201460000000000000000bb",
+  "stop": "aa0eb8000000000001022203000012",
+  "dock": "aa0eb8000000000001022201000014"
+ },
+ "packet_5a5a_query": "5a5a011148002000000000000c22380b180a1a1479df0d864870000000000000000000000000000058841e67fe7e05437c31771a454cf8c14fe4dbec5645b2d63ab8ce5303ac162f",
+ "v3": {
+  "key": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+  "handshake_reply_64": "93d81120b620bb4d7e8dbfabe6bf90dc464984e7037455c78c5871412b4babe9e3e16780becf601d55e4751e7d722ef91d750bb0cea61b1bb5ea8bc308cdf262",
+  "tcp_key": "646464646c6c6c6c646464647c7c7c7c646464646c6c6c6c646464649c9c9c9c",
+  "encrypted_request": "8370006e20666ac31b9462779c6f43067c7ee4bf78f922613d0c316d89313799d5349e4ee5e9f878c2596ad4d2cc5ed96c50fe7a212ca74487289597f23bc0aeae31affc2098abc7fb8e36880a0d2556e74fcb83f2ff7b4bbdaa025f6c7fca0ceeeb8fedba8ab22ce7bded7a893679fc6a35708873c0",
+  "handshake_request": "8370004020000000000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f303132333435363738393a3b3c3d3e3f",
+  "encrypted_response": "8370006e20636ac31b9462779c6f43067c7ee4bf78f922613d0c316d89313799d5349e4ee5e9f878c2596ad4d2cc5ed96c50fe7a212ca74487289597f23bc0aeae31affc2098abc7fb8e36880a0d2556e74fcb83f2ff8f623c013e406133e4657cacd218253b4f67f1dc47ad289c2f920b4bf38c7ad5",
+  "decoded_response": "5a5a011148002000000000000c22380b180a1a1479df0d864870000000000000000000000000000058841e67fe7e05437c31771a454cf8c14fe4dbec5645b2d63ab8ce5303ac162f"
+ },
+ "status": {
+  "query_charging_50": {
+   "frame": "aa1cb80000000000010332010401000002020001460032000000000190",
+   "parsed": {
+    "work_status": "charging_on_dock",
+    "function_type": "dust_box_cleaning",
+    "control_type": "none",
+    "move_direction": "none",
+    "clean_mode": "arc",
+    "fan_level": "normal",
+    "area": 0,
+    "water_level": "low",
+    "voice_volume": 70,
+    "mop": "on",
+    "carpet_switch": false,
+    "speed": "high",
+    "have_reserve_task": false,
+    "battery_percent": 50,
+    "work_time": 0,
+    "uv_switch": false,
+    "wifi_switch": false,
+    "voice_switch": false,
+    "command_source": false,
+    "error_type": "no",
+    "error_desc": "no",
+    "device_error": false,
+    "board_communication_error": false,
+    "laser_sensor_shelter": false,
+    "laser_sensor_error": false
+   }
+  },
+  "notify_work": {
+   "frame": "aa1bb8000000000001044202000200020200010100320000000001a9",
+   "parsed": {
+    "work_status": "work",
+    "function_type": "none",
+    "control_type": "auto",
+    "move_direction": "none",
+    "clean_mode": "arc",
+    "fan_level": "normal",
+    "area": 0,
+    "water_level": "low",
+    "voice_volume": 1,
+    "mop": "on",
+    "carpet_switch": false,
+    "speed": "high",
+    "have_reserve_task": false,
+    "battery_percent": 50,
+    "work_time": 0,
+    "uv_switch": false,
+    "wifi_switch": false,
+    "voice_switch": false,
+    "command_source": false,
+    "error_type": "no",
+    "error_desc": "no",
+    "device_error": false,
+    "board_communication_error": false,
+    "laser_sensor_shelter": false,
+    "laser_sensor_error": false
+   }
+  }
+ },
+ "cloud": {
+  "appkey": "ac21b9f9cbfe4ca5a88562ef25e2b768",
+  "iotkey": "meicloud",
+  "hmackey": "PROD_VnoClJI9aikS8dyy",
+  "sign_body": "{\"loginAccount\": \"user@example.com\", \"stamp\": \"20261024000000\"}",
+  "sign_random": "1792800000",
+  "sign": "dfcbf7236c80f56ac78481a41e5c4b5046142cd31397f23f8ba4f1100c7fd058",
+  "login_id": "a1b2c3d4",
+  "password": "Test-Password-123",
+  "encrypted_password": "29c406612a336ed7f5e86287550aa7946831fa2d31b40441b08432bec47b6ff1",
+  "encrypted_iam_password": "9796a2839304cdc4c77f513a16fe095c6734282173d822232957b0ece4dd8f6e",
+  "access_token": "9c3cbae92cde658a41a2f053cd8c2daff954fb0103abc6dbb2776efddfe43629",
+  "random_data": "c34d95602a528c4968ff15e7ca105d2dbe6ccfa58d0bf985b65f045fc142e318",
+  "data_key": "0123456789abcdef",
+  "data_iv": "fedcba9876543210",
+  "csv": "90,90,1,17,72,0,32,0,0,0,0,0,12,34,56,11,24,10,26,20,121,-33,13,-122,72,112,0,0,0,0,0,0,0,0,0,0,0,0,0,0,88,-124,30,103,-2,126,5,67,124,49,119,26,69,76,-8,-63,79,-28,-37,-20,86,69,-78,-42,58,-72,-50,83,3,-84,22,47",
+  "order": "ca68cdc7bbcca31a6fb7b462c7cd811d8bee6329f9edf59a5bf24d60df5400b33a15f8431caf17b03069f1db824f629593781014d02c7800b247ab5fd5f31304412edd2e5269f48c0360e6c15590ed7f687b6bf31281417ade2149dc8abdcafa5883e32dd9ad49d093463d4d01ab65e907769901d63d9845467c034d3640c54cef57f3e4374929f859a086460d0f20abb3eae54fc16b2b70f838d0f88350d7ab51126db43cf48e01ce0d7307efca362c4e1cb7ddcf844882f0d9fb3971dff48dd5dbd420b124c96905a3ba000a1e8579b4051b05bccf6e870d6db2f0aacd442a",
+  "device_id_for_account": "56c2e4da8ebc13f7",
+  "udpid": {
+   "0": "7951ac82e31f5cec7360d63c38b701a8",
+   "1": "0e5ec163f380a0cb698e172e42f91214",
+   "2": "61391e7323c9f95dd74148642a6fc77d"
+  }
+ }
+}

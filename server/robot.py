@@ -90,7 +90,8 @@ async def find_robot(device_id: int, near_ip: str, mac: str | None = None,
                      timeout: float = 4.0) -> dict[str, Any] | None:
     """Unicast Midea discovery to every host in near_ip's /24 and return this robot's entry.
 
-    Matches on device id or MAC (the id can change when the robot is paired again).
+    Matches on device id or MAC (the id can change when the robot is paired again). With
+    neither known (first setup), the first B8 robot vacuum that answers is the one.
     Unicast rather than broadcast: Windows' firewall drops replies to a broadcast.
     """
     loop = asyncio.get_running_loop()
@@ -117,7 +118,8 @@ async def find_robot(device_id: int, near_ip: str, mac: str | None = None,
             if dev:
                 found[dev_id] = dev
                 dev_mac = (dev.get("mac") or "").lower().replace(":", "")
-                if dev_id == device_id or (want_mac and dev_mac == want_mac):
+                first_setup = not device_id and not want_mac and dev.get("type") == 0xB8
+                if dev_id == device_id or (want_mac and dev_mac == want_mac) or first_setup:
                     return dev
     return None
 

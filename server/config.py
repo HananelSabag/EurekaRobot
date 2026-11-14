@@ -15,17 +15,18 @@ ROBOT_FILE = DATA / "robot.json"
 PREFS_FILE = DATA / "prefs.json"
 DB_FILE = DATA / "history.db"
 
-# What LAN discovery reported for "Sabag Robot" (Eureka NER 450) on 2026-10-23.
-# The IP can change; the link re-finds the robot by device id.
+# Before setup: no robot known yet. tools.get_key sweeps ip_address's /24, takes the first
+# B8 robot that answers and saves its id, address and LAN key in data/robot.json.
+# The IP can change later; the link re-finds the robot by device id or MAC.
 DEFAULT_ROBOT: dict[str, Any] = {
-    "device_id": 123456789012345,
+    "device_id": 0,
     "type": 0xB8,
-    "ip_address": "192.168.1.50",
+    "ip_address": "192.168.1.1",
     "port": 6444,
-    "model": "320VR900",
-    "sn": "0000B854U320VR900000000000000000",
+    "model": "",
+    "sn": "",
     "protocol": 3,
-    "mac": "8076c2000001",
+    "mac": "",
 }
 
 DEFAULT_PREFS: dict[str, Any] = {"mode": "arc", "fan": "normal", "water": "low"}
